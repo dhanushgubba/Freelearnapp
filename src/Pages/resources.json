@@ -1,74 +1,26 @@
 [
   {
-    "title": "Khan Academy",
-    "description": "Free online courses covering math, science, and more.",
-    "image": "https://www.khanacademy.org/images/og-logo.png"
-  },
-  {
     "title": "Coursera",
     "description": "Courses from top universities, available for free and paid options.",
-    "image": "https://about.coursera.org/static/apple-touch-icon.png"
-  },
-  {
-    "title": "edX",
-    "description": "Learn from Harvard, MIT, and more, with free online courses.",
-    "image": "https://www.edx.org/sites/default/files/edx-logo-header.png"
-  },
-  {
-    "title": "MIT OpenCourseWare",
-    "description": "Access free university-level courses and lecture notes from MIT.",
-    "image": "https://ocw.mit.edu/images/ocw-logo.png"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Coursera_logo_%282020%29.svg/2560px-Coursera_logo_%282020%29.svg.png"
   },
   {
     "title": "FreeCodeCamp",
     "description": "Hands-on coding exercises to learn programming and web development.",
-    "image": "https://design-style-guide.freecodecamp.org/downloads/fcc_primary_small.jpg"
+    "image": "https://design-style-guide.freecodecamp.org/img/fcc_secondary_small.svg"
   },
-  {
-    "title": "OpenStax",
-    "description": "Free peer-reviewed textbooks for high school and college subjects.",
-    "image": "https://assets.openstax.org/img/OpenStax_logo.png"
-  },
+
   {
     "title": "Udemy",
     "description": "Wide variety of online courses at affordable prices.",
     "image": "https://www.udemy.com/staticx/udemy/images/v7/logo-udemy.svg"
   },
   {
-    "title": "Skillshare",
-    "description": "Creative skills classes on design, photography, and business.",
-    "image": "https://static.skillshare.com/uploads/video/thumbnails/fb98de41043f5053a8f7f58ff35452e7/original"
-  },
-  {
-    "title": "Pluralsight",
-    "description": "Tech and creative courses for professional development.",
-    "image": "https://www.pluralsight.com/content/dam/pluralsight2/general/icons/pluralsight-og-image.png"
-  },
-  {
     "title": "LinkedIn Learning",
     "description": "Expert-led courses on business, technology, and creativity.",
-    "image": "https://content.linkedin.com/content/dam/me/learning/blog/2018/march/LIL_Logo.png"
+    "image": "https://media.licdn.com/dms/image/v2/D4D12AQEH1NEvVsNNbw/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1686297053222?e=2147483647&v=beta&t=FGwxePTOf1DpINZ-NGHW8ziDKv833i-r5ETfYp2E2U8"
   },
-  {
-    "title": "Codecademy",
-    "description": "Interactive coding lessons for beginners and advanced programmers.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Codecademy.svg"
-  },
-  {
-    "title": "Harvard Online Learning",
-    "description": "Courses from Harvard University on a variety of subjects.",
-    "image": "https://online-learning.harvard.edu/sites/default/files/styles/og_image/public/harvardonline-logo.png"
-  },
-  {
-    "title": "Stanford Online",
-    "description": "Stanford University’s online learning platform with free and paid courses.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/4/49/Stanford_Online_Logo.png"
-  },
-  {
-    "title": "NASA STEM Engagement",
-    "description": "Science and space education resources from NASA.",
-    "image": "https://www.nasa.gov/sites/default/files/thumbnails/image/nasa-logo-web-rgb.png"
-  },
+
   {
     "title": "W3Schools",
     "description": "Learn web development, HTML, CSS, JavaScript, and more.",
@@ -77,71 +29,23 @@
   {
     "title": "Microsoft Learn",
     "description": "Official Microsoft training platform for developers and IT professionals.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Learn_logo.png"
+    "image": "https://learn.microsoft.com/en-us/media/open-graph-image.png"
   },
-  {
-    "title": "Google Digital Garage",
-    "description": "Free online courses on digital marketing, career development, and coding.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Google_Digital_Garage_logo.png"
-  },
-  {
-    "title": "HubSpot Academy",
-    "description": "Free marketing, sales, and business courses.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/e/ec/HubSpot_Academy_Logo.png"
-  },
-  {
-    "title": "DataCamp",
-    "description": "Learn data science, Python, SQL, and machine learning.",
-    "image": "https://www.datacamp.com/favicon.ico"
-  },
+
   {
     "title": "AWS Training and Certification",
     "description": "Free AWS cloud computing courses for beginners and professionals.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Amazon_Web_Services_Logo.svg"
+    "image": "https://learn.microsoft.com/en-us/media/open-graph-image.png"
   },
   {
     "title": "IBM SkillsBuild",
     "description": "Tech and AI-focused learning for career development.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg"
   },
-  {
-    "title": "Udacity",
-    "description": "Nanodegree programs and free courses on tech skills.",
-    "image": "https://www.udacity.com/favicon.ico"
-  },
-  {
-    "title": "CyberSecurity Academy",
-    "description": "Free cybersecurity and ethical hacking courses.",
-    "image": "https://cybersecurityacademy.com/wp-content/uploads/2021/07/logo-dark-1.png"
-  },
-  {
-    "title": "Harvard CS50",
-    "description": "Harvard’s popular introductory computer science course.",
-    "image": "https://cs50.harvard.edu/images/cs50.svg"
-  },
-  {
-    "title": "The Odin Project",
-    "description": "Free full-stack web development curriculum.",
-    "image": "https://www.theodinproject.com/favicon.ico"
-  },
-  {
-    "title": "MITx",
-    "description": "MIT's free online courses on computer science and engineering.",
-    "image": "https://ocw.mit.edu/images/ocw-logo.png"
-  },
-  {
-    "title": "Google AI",
-    "description": "Learn AI, machine learning, and deep learning with Google.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/5/53/Google_AI_logo.png"
-  },
-  {
-    "title": "Scratch by MIT",
-    "description": "Learn programming with Scratch, a visual coding language for kids.",
-    "image": "https://scratch.mit.edu/images/logo_sm.png"
-  },
+
   {
     "title": "TED-Ed",
     "description": "Educational videos on a variety of topics.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/5/53/TED-Ed_logo.svg"
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReI6p8E6i_WwXLW4grn_llivhyEjaVeUpFqQ&s"
   }
 ]
