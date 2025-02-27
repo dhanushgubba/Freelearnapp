@@ -5,6 +5,7 @@ import Home from './Pages/Home';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Login from './Pages/Login';
+import Resources from './Pages/Resources'
 
 const App = () => {
   const Layout = () => {
@@ -15,6 +16,7 @@ const App = () => {
           <Route path="/" element={<LandingPage />} />
           <Route path="/home" element={<Home />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/resources" element={<Resources />} />
         </Routes>
         <Footer />
       </>
