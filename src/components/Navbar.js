@@ -30,7 +30,7 @@ const Navbar = () => {
           className="login-btn"
           onClick={() => setIsOpen(false)}
         >
-          Login
+          Login/SignUp
         </Link>
       </div>
 
