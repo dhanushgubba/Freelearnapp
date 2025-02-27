@@ -80,3 +80,23 @@ app.post('/login/signin', async function (req, res) {
     res.status(500).json({ error: 'Failed to login', details: err.message });
   }
 });
+
+app.post('/contact/submit', async function (req, res) {
+  let conn;
+  try {
+    conn = await client.connect();
+    const db = conn.db('Meghawebsite');
+    const collection = db.collection('contact');
+
+    const result = await collection.insertOne(req.body);
+
+    await conn.close();
+
+    res.status(200).json({ message: 'Contact saved successfully', result });
+  } catch (err) {
+    if (conn) await conn.close();
+    res
+      .status(500)
+      .json({ error: 'Failed to save contact', details: err.message });
+  }
+});

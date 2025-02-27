@@ -75,7 +75,7 @@ const About = () => {
           </div>
           <div className="team-card">
             <img src={KesavImage} alt="Jane Smith" className="team-avatar" />
-            <h3>N KESAV TARUN KUMAR</h3>
+            <h3>N KESAVA TARUN KUMAR</h3>
             <p>Designer</p>
           </div>
           <div className="team-card">
