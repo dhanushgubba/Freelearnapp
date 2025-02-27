@@ -24,3 +24,21 @@ app.post('/klef/cse', async function (req, res) {
 app.get('/', (req, res) => {
   res.send('Welcome to Free Learn App!');
 });
+
+app.post('/register/signup', async function (req, res) {
+  let conn;
+  try {
+    conn = await client.connect();
+    const db = conn.db('Freelearn');
+    const collection = db.collection('register');
+
+    const result = await collection.insertOne(req.body);
+
+    await conn.close();
+
+    res.status(200).json({ message: 'Registered successfully', result });
+  } catch (err) {
+    if (conn) await conn.close();
+    res.status(500).json({ error: 'Failed to Register', details: err.message });
+  }
+});

@@ -49,7 +49,7 @@ const SignUp = () => {
       });
 
       if (response.ok) {
-        setStatusMessage('Signup successful!');
+        setStatusMessage('Registered successful!');
         setFormData({
           firstName: '',
           lastName: '',
