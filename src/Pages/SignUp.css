@@ -1,85 +1,95 @@
-/* General Container */
+/* SignUp.css */
 .signup-container {
   display: flex;
-  min-height: 100vh;
-  align-items: center;
   justify-content: center;
-  background-color: #fff;
+  align-items: center;
+  min-height: 100vh;
   padding: 20px;
-  gap: 20px;
 }
 
-/* Signup Form */
 .signup-form {
-  flex: 1;
-  max-width: 450px;
-  background: #fff;
-  padding: 25px;
+  background: #ffffff;
+  padding: 40px;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  margin-right: 20px;
+}
+
+.signup-form h2 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
   text-align: center;
 }
 
-/* Heading */
-.signup-form h2 {
-  font-size: 24px;
+.signup-form p {
+  font-size: 16px;
+  color: #666;
   margin-bottom: 20px;
-  color: #333;
-  font-weight: 600;
+  text-align: center;
 }
 
-/* Input Group */
 .input-group {
-  margin-bottom: 18px;
-  text-align: left;
-}
-
-.input-group label {
-  display: block;
-  margin-bottom: 6px;
-  font-weight: 500;
-  color: #555;
-  font-size: 14px;
+  margin-bottom: 20px;
 }
 
 .input-group input {
   width: 100%;
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
+  padding: 12px 15px;
   font-size: 16px;
-  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
   transition: border-color 0.3s ease;
 }
 
 .input-group input:focus {
   border-color: #007bff;
-  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
 }
 
-/* Button */
-button {
+.signup-btn {
   width: 100%;
   padding: 12px;
   background-color: #007bff;
   color: #fff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
   font-size: 16px;
   font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-button:hover {
+.signup-btn:hover {
   background-color: #0056b3;
 }
 
-/* Login Link */
-.login-link {
+.signup-btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.status-message {
   margin-top: 15px;
   font-size: 14px;
-  color: #333;
+  color: #dc3545; /* Red for errors */
+  text-align: center;
+}
+
+/* Success message styling */
+.status-message:contains('successful') {
+  color: #28a745; /* Green for success */
+}
+
+.login-link {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #666;
+  text-align: center;
 }
 
 .login-link a {
@@ -92,95 +102,35 @@ button:hover {
   text-decoration: underline;
 }
 
-/* Right Side - Image */
 .signup-image {
   flex: 1;
+  max-width: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .signup-image img {
-  max-width: 100%;
+  width: 100%;
   height: auto;
   border-radius: 12px;
+  object-fit: cover;
 }
 
-/* Mobile Optimization */
+/* Responsive Design */
 @media (max-width: 768px) {
   .signup-container {
     flex-direction: column;
-    padding: 15px;
-    min-height: auto;
+    padding: 10px;
   }
 
   .signup-form {
-    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
     max-width: 100%;
-    padding: 20px;
-    margin: 0 auto;
-    box-shadow: none; /* Remove shadow on mobile for cleaner look */
-  }
-
-  .signup-form h2 {
-    font-size: 22px;
-    margin-bottom: 15px;
-  }
-
-  .input-group {
-    margin-bottom: 15px;
-  }
-
-  .input-group label {
-    font-size: 13px;
-  }
-
-  .input-group input {
-    padding: 10px;
-    font-size: 14px;
-    border-radius: 5px;
-  }
-
-  button {
-    padding: 10px;
-    font-size: 14px;
-    border-radius: 5px;
-  }
-
-  .login-link {
-    font-size: 13px;
   }
 
   .signup-image {
-    display: none; /* Hide image on mobile */
-  }
-}
-
-/* Extra Small Screens (e.g., < 400px) */
-@media (max-width: 400px) {
-  .signup-form {
-    padding: 15px;
-  }
-
-  .signup-form h2 {
-    font-size: 20px;
-  }
-
-  .input-group label {
-    font-size: 12px;
-  }
-
-  .input-group input {
-    padding: 8px;
-    font-size: 13px;
-  }
-
-  button {
-    padding: 8px;
-    font-size: 13px;
-  }
-
-  .login-link {
-    font-size: 12px;
+    max-width: 100%;
   }
 }

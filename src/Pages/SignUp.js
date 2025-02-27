@@ -3,96 +3,138 @@ import './SignUp.css';
 import signupImage from '../assets/signup.jpg';
 
 const SignUp = () => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+  });
 
-  const handleSignup = (e) => {
+  const [statusMessage, setStatusMessage] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSignup = async (e) => {
     e.preventDefault();
-    if (password !== confirmPassword) {
-      alert('Passwords do not match!');
+
+    const { firstName, lastName, email, password, confirmPassword } = formData;
+
+    // Frontend validation
+    if (!firstName || !lastName || !email || !password || !confirmPassword) {
+      setStatusMessage('All fields are required.');
       return;
     }
-    console.log('Signing up with:', firstName, lastName, email, password);
+    if (password !== confirmPassword) {
+      setStatusMessage('Passwords do not match.');
+      return;
+    }
+
+    setIsSubmitting(true);
+    setStatusMessage('');
+
+    try {
+      const response = await fetch('http://localhost:5000/register/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatusMessage('Signup successful!');
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          password: '',
+          confirmPassword: '',
+        });
+      } else {
+        const errorData = await response.json();
+        setStatusMessage(
+          errorData.message || 'Signup failed. Please try again.'
+        );
+      }
+    } catch (error) {
+      setStatusMessage('Network error. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <div className="signup-container">
-      {/* Left Side - Signup Form */}
       <div className="signup-form">
-        <h2>Sign Up</h2>
+        <h2>Create Your Account</h2>
+        <p>Join us and start your journey today!</p>
         <form onSubmit={handleSignup}>
           <div className="input-group">
-            <label htmlFor="firstName">First Name</label>
             <input
-              id="firstName"
               type="text"
-              placeholder="Enter your first name"
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
+              name="firstName"
+              placeholder="First Name"
+              value={formData.firstName}
+              onChange={handleChange}
               required
             />
           </div>
-
           <div className="input-group">
-            <label htmlFor="lastName">Last Name</label>
             <input
-              id="lastName"
               type="text"
-              placeholder="Enter your last name"
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
+              name="lastName"
+              placeholder="Last Name"
+              value={formData.lastName}
+              onChange={handleChange}
               required
             />
           </div>
-
           <div className="input-group">
-            <label htmlFor="email">Email</label>
             <input
-              id="email"
               type="email"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              name="email"
+              placeholder="Email"
+              value={formData.email}
+              onChange={handleChange}
               required
             />
           </div>
-
           <div className="input-group">
-            <label htmlFor="password">Password</label>
             <input
-              id="password"
               type="password"
-              placeholder="Enter your password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              name="password"
+              placeholder="Password"
+              value={formData.password}
+              onChange={handleChange}
               required
             />
           </div>
-
           <div className="input-group">
-            <label htmlFor="confirmPassword">Retype Password</label>
             <input
-              id="confirmPassword"
               type="password"
-              placeholder="Re-enter your password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
+              name="confirmPassword"
+              placeholder="Confirm Password"
+              value={formData.confirmPassword}
+              onChange={handleChange}
               required
             />
           </div>
-
-          <button type="submit">Sign Up</button>
-
+          <button type="submit" className="signup-btn" disabled={isSubmitting}>
+            {isSubmitting ? 'Signing Up...' : 'Sign Up'}
+          </button>
+          {statusMessage && <p className="status-message">{statusMessage}</p>}
           <p className="login-link">
             Already have an account? <a href="/login">Login Here</a>
           </p>
         </form>
       </div>
-
-      {/* Right Side - Image */}
       <div className="signup-image">
         <img src={signupImage} alt="Signup Illustration" />
       </div>
