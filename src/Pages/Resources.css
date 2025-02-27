@@ -1,13 +1,17 @@
-/* Overall Container */
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Main Container */
 .resources-container {
   max-width: 1200px;
   margin: 40px auto;
   text-align: center;
-  font-family: 'Arial', sans-serif;
   padding: 20px;
-  background: linear-gradient(to right, #ffffff, #f8f9fa);
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 /* Title */
@@ -27,11 +31,11 @@
 
 /* Search Bar */
 .search-bar {
-  width: 80%; /* Extended Width */
-  max-width: 600px; /* Maximum Width */
+  width: 80%;
+  max-width: 600px;
   padding: 14px;
   border: 2px solid #ddd;
-  border-radius: 6px; /* Rectangular shape */
+  border-radius: 6px;
   font-size: 18px;
   margin-bottom: 25px;
   text-align: left;
@@ -41,14 +45,12 @@
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Search Bar Focus Effect */
 .search-bar:focus {
   outline: none;
   border-color: #007bff;
   box-shadow: 0 0 12px rgba(0, 123, 255, 0.3);
   background: #f8f9fa;
 }
-
 
 /* Grid Layout */
 .resources-grid {
@@ -60,12 +62,10 @@
 
 /* Card Design */
 .resource-card {
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  background: transparent; /* No box around cards */
   padding: 20px;
   text-align: center;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -73,16 +73,20 @@
 }
 
 .resource-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
 }
 
 /* Resource Image */
 .resource-image {
-  width: 120px;
+  width: 140px;
   height: auto;
   margin-bottom: 15px;
   border-radius: 8px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.resource-card:hover .resource-image {
+  transform: scale(1.1);
 }
 
 /* Resource Content */
@@ -131,4 +135,15 @@
 .view-more-button:hover {
   background: #218838;
   transform: scale(1.08);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .search-bar {
+    width: 90%;
+  }
+
+  .resources-grid {
+    grid-template-columns: 1fr;
+  }
 }
