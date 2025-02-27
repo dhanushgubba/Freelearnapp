@@ -43,7 +43,7 @@ app.post('/register/signup', async function (req, res) {
   }
 });
 
-app.post('/login/signin', async function (req, res) {
+/*app.post('/login/signin', async function (req, res) {
   let conn;
   try {
     const { email, password } = req.body;
@@ -79,6 +79,50 @@ app.post('/login/signin', async function (req, res) {
     console.error('Error in login route:', err.message); // Log error details
     res.status(500).json({ error: 'Failed to login', details: err.message });
   }
+});*/
+app.post('/login/signin', async function (req, res) {
+  let conn;
+  try {
+    const { email, password } = req.body;
+
+    if (!email || !password) {
+      return res.status(400).json({ error: 'Email and password are required' });
+    }
+
+    conn = await client.connect();
+    const db = conn.db('Freelearn');
+    const collection = db.collection('register');
+
+    const user = await collection.findOne({ email });
+
+    if (!user) {
+      return res.status(400).json({ error: 'Invalid email or password' });
+    }
+
+    const passwordMatch = user.password === password;
+
+    if (!passwordMatch) {
+      return res.status(400).json({ error: 'Invalid email or password' });
+    }
+
+    console.log('Login successful for user:', email);
+
+    // Send full user details (excluding sensitive fields like password)
+    res.status(200).json({
+      message: 'Login successful',
+      user: {
+        firstname: user.firstName,
+        name: user.lastName,
+        email: user.email,
+      },
+    });
+
+    await conn.close();
+  } catch (err) {
+    if (conn) await conn.close();
+    console.error('Error in login route:', err.message);
+    res.status(500).json({ error: 'Failed to login', details: err.message });
+  }
 });
 
 app.post('/contact/submit', async function (req, res) {
@@ -110,7 +154,7 @@ app.get('/userprofile/get', async function (req, res) {
 
     // Fetch all user details
     const users = await collection
-      .find({}, { projection: { name: 1, email: 1, _id: 0 } })
+      .find({}, { projection: { firstname: 1, name: 1, email: 1, _id: 0 } })
       .toArray();
 
     if (users.length > 0) {

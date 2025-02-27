@@ -21,7 +21,6 @@ const Login = () => {
     });
   };
 
-  // Handle Form Submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { email, password } = formData;
@@ -44,9 +43,11 @@ const Login = () => {
       const data = await response.json();
 
       if (response.ok) {
-        localStorage.setItem('userID', email);
+        // Store full user details in localStorage
+        localStorage.setItem('loggedInUser', JSON.stringify(data.user));
+
         setStatusMessage('Login Successful');
-        navigate('/dashboard'); // Navigate to dashboard
+        navigate('/dashboard'); // Navigate to dashboard or profile
       } else {
         setStatusMessage(
           data?.error || 'Login failed. Please check your credentials.'
@@ -74,7 +75,7 @@ const Login = () => {
             <label htmlFor="email">Email</label>
             <input
               id="email"
-              name="email" // Added name attribute
+              name="email"
               type="email"
               placeholder="Enter your email"
               value={formData.email}
@@ -87,7 +88,7 @@ const Login = () => {
             <label htmlFor="password">Password</label>
             <input
               id="password"
-              name="password" // Added name attribute
+              name="password"
               type="password"
               placeholder="Enter your password"
               value={formData.password}

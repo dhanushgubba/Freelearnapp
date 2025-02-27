@@ -1,31 +1,57 @@
 .profile-container {
-  max-width: 400px;
+  max-width: 450px;
   margin: 50px auto;
   padding: 20px;
   background: #ffffff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
   text-align: center;
+  overflow: hidden;
 }
 
-.profile-container h2 {
-  color: #333;
-  margin-bottom: 20px;
+.profile-header {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  padding: 20px;
+  font-size: 22px;
+  font-weight: bold;
+  border-radius: 12px 12px 0 0;
 }
 
-.profile-container p {
+.profile-details {
+  padding: 20px;
+}
+
+.profile-item {
+  display: flex;
+  align-items: center;
   font-size: 18px;
-  color: #555;
+  color: #333;
   margin: 10px 0;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
 }
 
-.profile-container p strong {
-  color: #000;
+.profile-item:last-child {
+  border-bottom: none;
+}
+
+.profile-item strong {
+  flex: 1;
+  text-align: left;
+  color: #555;
+}
+
+.profile-icon {
+  font-size: 22px;
+  margin-right: 10px;
+  color: #6a11cb;
 }
 
 .error-message {
   color: red;
-  text-align: center;
+  font-size: 16px;
+  margin-top: 10px;
 }
 
 .loading-message {
