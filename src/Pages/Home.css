@@ -1,0 +1,216 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+/* Custom Properties (Variables) */
+:root {
+  --primary-color: #ffcc00;
+  --primary-hover: #e6b800;
+  --text-color: #000;
+  --shadow-light: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --shadow-glow: 0 5px 15px rgba(255, 204, 0, 0.3);
+  --border-radius: 15px;
+  --font-family: 'Poppins', sans-serif;
+}
+
+/* Home Container */
+.home-container {
+  text-align: center;
+  font-family: var(--font-family);
+  color: var(--text-color);
+  padding: clamp(20px, 5vw, 50px) 20px; /* Responsive padding */
+}
+
+/* Hero Section */
+.home-header {
+  padding: clamp(40px, 8vw, 60px) 20px;
+}
+
+.home-header h1 {
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 700;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.home-header p {
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  margin-bottom: 1.25rem;
+  opacity: 0.9;
+}
+
+.explore-btn {
+  display: inline-block;
+  padding: 14px 32px;
+  background: var(--primary-color);
+  color: var(--text-color);
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+  box-shadow: var(--shadow-glow);
+}
+
+.explore-btn:hover {
+  background: var(--primary-hover);
+  transform: scale(1.05);
+}
+
+.explore-btn:focus {
+  outline: 2px solid var(--primary-hover);
+  outline-offset: 2px;
+}
+
+/* Features Section */
+.features {
+  margin-top: 3.75rem;
+  padding: clamp(20px, 5vw, 40px) 20px;
+}
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.25rem;
+  justify-content: center;
+}
+
+.feature-box {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 1.875rem;
+  border-radius: var(--border-radius);
+  text-align: center;
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-light);
+  transition: transform 0.3s ease-in-out;
+}
+
+.feature-box:hover {
+  transform: translateY(-10px);
+}
+
+.feature-box h3 {
+  font-size: 1.7rem;
+  margin-bottom: 0.625rem;
+}
+
+.feature-box p {
+  font-size: 1.1rem;
+  opacity: 0.85;
+}
+
+.testimonials {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+}
+
+.testimonial-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.testimonial-box {
+  background: white;
+  padding: 20px;
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.testimonial-box:hover {
+  transform: scale(1.05);
+}
+
+.testimonial-text {
+  font-style: italic;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.testimonial-rating {
+  font-size: 18px;
+  color: #ffcc00;
+}
+
+.testimonial-author {
+  display: block;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Call to Action */
+.cta-section {
+  margin-top: 3.75rem;
+  padding: clamp(30px, 6vw, 50px) 20px;
+}
+
+.cta-section h2 {
+  font-size: clamp(1.8rem, 4vw, 2.2rem);
+  font-weight: 700;
+}
+
+.cta-section p {
+  font-size: 1.3rem;
+  margin-bottom: 1.25rem;
+  opacity: 0.9;
+}
+
+.cta-btn {
+  display: inline-block;
+  padding: 14px 32px;
+  background: var(--primary-color);
+  color: var(--text-color);
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+  box-shadow: var(--shadow-glow);
+}
+
+.cta-btn:hover {
+  background: var(--primary-hover);
+  transform: scale(1.05);
+}
+
+.cta-btn:focus {
+  outline: 2px solid var(--primary-hover);
+  outline-offset: 2px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .home-header h1 {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+  }
+
+  .feature-box {
+    width: 80%;
+  }
+
+  .testimonial-box {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .explore-btn,
+  .cta-btn {
+    padding: 12px 24px;
+    font-size: 1.1rem;
+  }
+}
