@@ -42,3 +42,41 @@ app.post('/register/signup', async function (req, res) {
     res.status(500).json({ error: 'Failed to Register', details: err.message });
   }
 });
+
+app.post('/login/signin', async function (req, res) {
+  let conn;
+  try {
+    const { email, password } = req.body;
+
+    if (!email || !password) {
+      console.log('Email or password missing');
+      return res.status(400).json({ error: 'Email and password are required' });
+    }
+
+    conn = await client.connect();
+    const db = conn.db('Freelearn');
+    const collection = db.collection('register');
+
+    const user = await collection.findOne({ email });
+
+    if (!user) {
+      console.log('User not found');
+      return res.status(400).json({ error: 'Invalid email or password' });
+    }
+
+    const passwordMatch = user.password === password;
+
+    if (!passwordMatch) {
+      console.log('Password mismatch');
+      return res.status(400).json({ error: 'Invalid email or password' });
+    }
+
+    console.log('Login successful for user:', email);
+    res.status(200).json({ message: 'Login successful' });
+    await conn.close();
+  } catch (err) {
+    if (conn) await conn.close();
+    console.error('Error in login route:', err.message); // Log error details
+    res.status(500).json({ error: 'Failed to login', details: err.message });
+  }
+});
