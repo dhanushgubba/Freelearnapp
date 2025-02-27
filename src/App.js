@@ -4,6 +4,7 @@ import LandingPage from './Pages/LandingPage';
 import Home from './Pages/Home';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import Login from './Pages/Login';
 
 const App = () => {
   const Layout = () => {
@@ -13,6 +14,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
         <Footer />
       </>
