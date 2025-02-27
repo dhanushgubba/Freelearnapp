@@ -85,7 +85,7 @@ app.post('/contact/submit', async function (req, res) {
   let conn;
   try {
     conn = await client.connect();
-    const db = conn.db('Meghawebsite');
+    const db = conn.db('Freelearn');
     const collection = db.collection('contact');
 
     const result = await collection.insertOne(req.body);
@@ -98,5 +98,30 @@ app.post('/contact/submit', async function (req, res) {
     res
       .status(500)
       .json({ error: 'Failed to save contact', details: err.message });
+  }
+});
+
+app.get('/userprofile/get', async function (req, res) {
+  let conn;
+  try {
+    conn = await client.connect();
+    const db = conn.db('Freelearn');
+    const collection = db.collection('register');
+
+    // Fetch all user details
+    const users = await collection
+      .find({}, { projection: { name: 1, email: 1, _id: 0 } })
+      .toArray();
+
+    if (users.length > 0) {
+      res.status(200).json(users);
+    } else {
+      res.status(404).json({ message: 'No users found' });
+    }
+  } catch (error) {
+    console.error('Error fetching user profiles:', error);
+    res.status(500).json({ message: 'Internal Server Error' });
+  } finally {
+    if (conn) await conn.close();
   }
 });

@@ -1,0 +1,79 @@
+/* Make the sidebar and main content display side by side */
+.dashboard {
+  display: flex;
+  height: 100vh; /* Ensure full height */
+  width: 100vw;
+  overflow: hidden;
+}
+
+/* Sidebar styles (fixed position) */
+.sidebar {
+  width: 270px;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh; /* Keep sidebar full height */
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+/* Main content area */
+.dashboard-content {
+  flex: 1;
+  margin-left: 270px; /* Push content right, same as sidebar width */
+  padding: 40px;
+  overflow-y: auto; /* Enable scrolling */
+  height: 100vh; /* Make it fill the screen */
+  background: #f5f5f5; /* Light background for contrast */
+}
+
+/* Sidebar menu styles */
+.sidebar .menu {
+  list-style: none;
+  width: 100%;
+}
+
+.sidebar .menu li {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.sidebar .menu a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+  padding: 12px;
+  border-radius: 8px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.sidebar .menu a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.sidebar .menu .icon {
+  margin-right: 15px;
+  font-size: 1.5rem;
+}
+
+/* Logout button */
+.logout {
+  margin-top: auto;
+  background: red;
+  padding: 12px;
+  text-align: center;
+  border-radius: 8px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.logout:hover {
+  background: darkred;
+  transform: scale(1.05);
+}

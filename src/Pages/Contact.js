@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import './Contact.css';
 
 function Contact() {
+  const form = useRef();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -23,14 +25,19 @@ function Contact() {
     setIsSubmitting(true);
     setStatus({ type: '', message: '' });
 
-    try {
-      const response = await fetch('http://localhost:5000/contact/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
+    const serviceId = 'service_1bojrfr';
+    const templateId = 'template_otp6lau';
+    const publicKey = 'nbvcE9PJ_2IrqPuag';
 
-      if (response.ok) {
+    try {
+      const result = await emailjs.sendForm(
+        serviceId,
+        templateId,
+        form.current,
+        publicKey
+      );
+
+      if (result.text === 'OK') {
         setStatus({
           type: 'success',
           message: 'Thank you! Your message has been sent successfully.',
@@ -43,6 +50,7 @@ function Contact() {
         });
       }
     } catch (error) {
+      console.error('Email error:', error);
       setStatus({
         type: 'error',
         message: 'An error occurred. Please try again later.',
@@ -67,7 +75,7 @@ function Contact() {
 
           {/* Form Section */}
           <div className="contact-form-container">
-            <form onSubmit={handleSubmit}>
+            <form ref={form} onSubmit={handleSubmit}>
               {/* Name Input */}
               <div className="form-group">
                 <label htmlFor="name">Your Name</label>
@@ -145,10 +153,7 @@ function Contact() {
 
             {/* Contact Info */}
             <div className="contact-info">
-              <a
-                href="mailto:meghacloudclub@example.com"
-                className="email-link"
-              >
+              <a href="mailto:2200030302cseh@gmail.com" className="email-link">
                 <i className="fas fa-envelope email-icon"></i>
                 2200030302cseh@gmail.com
               </a>
